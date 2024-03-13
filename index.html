@@ -10,6 +10,11 @@
 <body>
     <div id="app">
         <h1>{{message}}</h1>
+        <ul v-for="task in tasks">
+            <li v-if="task.done" style="text-decoration: line-through;">{{task.text}}</li>
+            <li v-else >{{task.text}}</li>
+
+        </ul>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
