@@ -36,7 +36,7 @@ createApp({
                 text: this.newTask,
                 done: false
             }
-            this.tasks.push(newElement)
+            this.tasks.unshift(newElement)
             this.newTask = ``
         }
     }
