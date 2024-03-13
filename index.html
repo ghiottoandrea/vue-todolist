@@ -13,9 +13,12 @@
 <body>
     <div id="app">
         <h1>{{message}}</h1>
+        <input type="text" v-model="newTask">
+        <button type="submit" @click="addNewTask">Add</button>
+        <h3>Task to do:</h3>
         <ul v-for="(task, index) in tasks">
-            <li v-if="task.done" style="text-decoration: line-through;">{{task.text}} <i class="fa-solid fa-xmark" @click=deleteTask(index)></i></li>
-            <li v-else >{{task.text}} <i class="fa-solid fa-xmark" @click=deleteTask(index)></i></li>
+            <li v-if="task.done" style="text-decoration: line-through;" @click="task.done = false">{{task.text}} <i class="fa-solid fa-xmark" @click=deleteTask(index)></i></li>
+            <li v-else @click="task.done = true">{{task.text}} <i class="fa-solid fa-xmark" @click=deleteTask(index)></i></li>
         </ul>
     </div>
 

@@ -4,6 +4,8 @@ createApp({
     data() {
         return {
             message: `To Do List`,
+            newTask: ``,
+            
             tasks: [
                 {
                     text: `Wash the dishes`,
@@ -26,8 +28,16 @@ createApp({
         }
     },
     methods: {
-        deleteTask(index){
+        deleteTask(index) {
             this.tasks.splice(index, 1)
+        },
+        addNewTask() {
+            const newElement = {
+                text: this.newTask,
+                done: false
+            }
+            this.tasks.push(newElement)
+            this.newTask = ``
         }
     }
 }).mount(`#app`)
